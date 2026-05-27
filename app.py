@@ -15,7 +15,17 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* ── Google Fonts ── */
+    /* ══════════════════════════════════════════════════
+       Earth & Neon Palette
+       BG       #0B1914  (deep forest dark green)
+       Card     #1A3029  (dark khaki green)
+       Accent   #CCFF00  (neon lime)
+       Accent2  #00FF88  (neon mint — secondary glow)
+       TextHi   #E8F5E2  (pale green-white)
+       TextMid  #7DAF8A  (muted green)
+       TextLow  #4A7060  (dim green-grey)
+    ══════════════════════════════════════════════════ */
+
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap');
 
     html, body, [class*="css"] {
@@ -24,8 +34,11 @@ st.markdown(
 
     /* ── 전체 배경 ── */
     .stApp {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-        color: #e8eaf6;
+        background-color: #0B1914;
+        background-image:
+            radial-gradient(ellipse 80% 50% at 10% 0%, rgba(204,255,0,0.06) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 40% at 90% 100%, rgba(0,255,136,0.05) 0%, transparent 55%);
+        color: #E8F5E2;
     }
 
     /* ── 숨기기 ── */
@@ -33,97 +46,113 @@ st.markdown(
 
     /* ── 히어로 섹션 ── */
     .hero-container {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: linear-gradient(135deg, rgba(26,48,41,0.95) 0%, rgba(11,25,20,0.98) 100%);
+        border: 1px solid rgba(204,255,0,0.18);
         border-radius: 24px;
         padding: 3rem 2rem;
         text-align: center;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
         margin-bottom: 2rem;
+        box-shadow: 0 0 60px rgba(204,255,0,0.05), inset 0 1px 0 rgba(204,255,0,0.1);
     }
     .hero-avatar {
         width: 140px;
         height: 140px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1A3029 0%, #0B1914 100%);
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 1.5rem auto;
         font-size: 4rem;
-        box-shadow: 0 8px 32px rgba(102,126,234,0.5);
-        border: 4px solid rgba(255,255,255,0.2);
+        box-shadow:
+            0 0 0 3px rgba(204,255,0,0.35),
+            0 0 30px rgba(204,255,0,0.25),
+            0 8px 32px rgba(0,0,0,0.5);
+        border: 2px solid rgba(204,255,0,0.5);
     }
     .hero-name {
         font-size: 2.8rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #a78bfa, #60a5fa);
+        background: linear-gradient(135deg, #CCFF00 0%, #00FF88 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0.3rem;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 0 20px rgba(204,255,0,0.4));
     }
     .hero-title {
-        font-size: 1.15rem;
-        color: #a5b4fc;
-        font-weight: 500;
+        font-size: 1.1rem;
+        color: #7DAF8A;
+        font-weight: 400;
         margin-bottom: 1rem;
+        letter-spacing: 0.02em;
     }
     .hero-badge {
         display: inline-block;
-        background: rgba(102,126,234,0.25);
-        border: 1px solid rgba(102,126,234,0.5);
-        color: #c4b5fd;
+        background: rgba(204,255,0,0.08);
+        border: 1px solid rgba(204,255,0,0.28);
+        color: #CCFF00;
         padding: 0.3rem 1rem;
         border-radius: 20px;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         margin: 0.2rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: background 0.2s, box-shadow 0.2s;
+    }
+    .hero-badge:hover {
+        background: rgba(204,255,0,0.15);
+        box-shadow: 0 0 12px rgba(204,255,0,0.2);
     }
 
     /* ── 섹션 카드 ── */
     .section-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: #1A3029;
+        border: 1px solid rgba(204,255,0,0.1);
         border-radius: 16px;
         padding: 1.8rem;
-        backdrop-filter: blur(8px);
         margin-bottom: 1.5rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .section-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 40px rgba(102,126,234,0.2);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 20px rgba(204,255,0,0.08);
+        border-color: rgba(204,255,0,0.22);
     }
     .section-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 700;
-        color: #a78bfa;
+        color: #CCFF00;
         margin-bottom: 1.2rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        letter-spacing: 0.01em;
     }
 
     /* ── 스킬 바 ── */
-    .skill-item { margin-bottom: 0.8rem; }
+    .skill-item { margin-bottom: 0.85rem; }
     .skill-label {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 0.25rem;
-        font-size: 0.9rem;
-        color: #c4b5fd;
+        margin-bottom: 0.3rem;
+        font-size: 0.88rem;
+        color: #E8F5E2;
         font-weight: 500;
     }
+    .skill-pct { color: #CCFF00; font-weight: 600; }
     .skill-bar-bg {
-        background: rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.06);
         border-radius: 10px;
-        height: 8px;
+        height: 7px;
         overflow: hidden;
     }
     .skill-bar-fill {
         height: 100%;
         border-radius: 10px;
-        background: linear-gradient(90deg, #667eea, #a78bfa);
-        transition: width 1s ease;
+        background: linear-gradient(90deg, #CCFF00 0%, #00FF88 100%);
+        box-shadow: 0 0 8px rgba(204,255,0,0.5);
     }
 
     /* ── 타임라인 ── */
@@ -131,7 +160,7 @@ st.markdown(
         position: relative;
         padding-left: 1.5rem;
         padding-bottom: 1.5rem;
-        border-left: 2px solid rgba(167,139,250,0.3);
+        border-left: 2px solid rgba(204,255,0,0.2);
     }
     .timeline-item:last-child { border-left: 2px solid transparent; }
     .timeline-dot {
@@ -141,66 +170,70 @@ st.markdown(
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #667eea, #a78bfa);
-        box-shadow: 0 0 8px rgba(167,139,250,0.8);
+        background: #CCFF00;
+        box-shadow: 0 0 10px rgba(204,255,0,0.8), 0 0 20px rgba(204,255,0,0.3);
     }
     .timeline-period {
-        font-size: 0.78rem;
-        color: #818cf8;
-        font-weight: 600;
+        font-size: 0.75rem;
+        color: #CCFF00;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
     }
     .timeline-company {
         font-size: 1rem;
         font-weight: 700;
-        color: #e0e7ff;
-        margin-top: 0.15rem;
+        color: #E8F5E2;
+        margin-top: 0.2rem;
     }
     .timeline-role {
-        font-size: 0.88rem;
-        color: #a5b4fc;
+        font-size: 0.85rem;
+        color: #7DAF8A;
         margin-top: 0.1rem;
     }
     .timeline-desc {
-        font-size: 0.85rem;
-        color: #9ca3af;
+        font-size: 0.83rem;
+        color: #4A7060;
         margin-top: 0.4rem;
-        line-height: 1.5;
+        line-height: 1.6;
     }
 
     /* ── 프로젝트 카드 ── */
     .project-card {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(11,25,20,0.7);
+        border: 1px solid rgba(204,255,0,0.1);
         border-radius: 12px;
         padding: 1.2rem;
         margin-bottom: 1rem;
-        transition: border-color 0.2s ease;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .project-card:hover { border-color: rgba(167,139,250,0.5); }
+    .project-card:hover {
+        border-color: rgba(204,255,0,0.45);
+        box-shadow: 0 0 20px rgba(204,255,0,0.08);
+    }
     .project-title {
         font-weight: 700;
-        color: #c4b5fd;
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
+        color: #E8F5E2;
+        font-size: 0.97rem;
+        margin-bottom: 0.35rem;
     }
     .project-desc {
-        color: #9ca3af;
-        font-size: 0.85rem;
-        line-height: 1.5;
+        color: #4A7060;
+        font-size: 0.83rem;
+        line-height: 1.6;
         margin-bottom: 0.6rem;
     }
     .tech-tag {
         display: inline-block;
-        background: rgba(96,165,250,0.15);
-        border: 1px solid rgba(96,165,250,0.3);
-        color: #93c5fd;
+        background: rgba(204,255,0,0.08);
+        border: 1px solid rgba(204,255,0,0.22);
+        color: #CCFF00;
         padding: 0.15rem 0.6rem;
-        border-radius: 8px;
-        font-size: 0.75rem;
+        border-radius: 6px;
+        font-size: 0.73rem;
         margin: 0.1rem;
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: 0.02em;
     }
 
     /* ── 연락처 ── */
@@ -209,29 +242,73 @@ st.markdown(
         align-items: center;
         gap: 0.8rem;
         padding: 0.8rem 1rem;
-        background: rgba(255,255,255,0.03);
+        background: rgba(11,25,20,0.6);
         border-radius: 10px;
         margin-bottom: 0.6rem;
-        color: #c4b5fd;
-        font-size: 0.9rem;
-        border: 1px solid rgba(255,255,255,0.06);
+        color: #7DAF8A;
+        font-size: 0.88rem;
+        border: 1px solid rgba(204,255,0,0.08);
+        transition: border-color 0.2s, color 0.2s;
     }
-    .contact-icon { font-size: 1.2rem; }
+    .contact-item:hover {
+        border-color: rgba(204,255,0,0.3);
+        color: #E8F5E2;
+    }
+    .contact-icon { font-size: 1.15rem; }
 
-    /* ── Streamlit 컴포넌트 오버라이드 ── */
+    /* ── 버튼 오버라이드 ── */
+    div[data-testid="stButton"] > button {
+        background: #CCFF00 !important;
+        color: #0B1914 !important;
+        border: none !important;
+        border-radius: 10px !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
+        letter-spacing: 0.02em !important;
+        transition: box-shadow 0.2s, transform 0.15s !important;
+        box-shadow: 0 0 20px rgba(204,255,0,0.25) !important;
+    }
+    div[data-testid="stButton"] > button:hover {
+        box-shadow: 0 0 35px rgba(204,255,0,0.55) !important;
+        transform: translateY(-2px) !important;
+    }
+    div[data-testid="stButton"] > button:active {
+        transform: translateY(0) !important;
+    }
+
+    /* ── 텍스트 인풋 오버라이드 ── */
+    div[data-testid="stTextInput"] input,
+    div[data-testid="stTextArea"] textarea {
+        background: rgba(11,25,20,0.8) !important;
+        border: 1px solid rgba(204,255,0,0.2) !important;
+        border-radius: 8px !important;
+        color: #E8F5E2 !important;
+    }
+    div[data-testid="stTextInput"] input:focus,
+    div[data-testid="stTextArea"] textarea:focus {
+        border-color: rgba(204,255,0,0.55) !important;
+        box-shadow: 0 0 0 2px rgba(204,255,0,0.12) !important;
+    }
+
+    /* ── Streamlit Metric 카드 ── */
     div[data-testid="stMetric"] {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 12px;
-        padding: 1rem;
+        background: #1A3029 !important;
+        border: 1px solid rgba(204,255,0,0.12) !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
     }
     div[data-testid="stMetric"] label {
-        color: #a5b4fc !important;
-        font-size: 0.82rem !important;
+        color: #7DAF8A !important;
+        font-size: 0.8rem !important;
     }
     div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
-        color: #e0e7ff !important;
-        font-size: 1.6rem !important;
+        color: #CCFF00 !important;
+        font-size: 1.55rem !important;
+        font-weight: 700 !important;
+    }
+    div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
+        color: #4A7060 !important;
+        font-size: 0.78rem !important;
     }
     </style>
     """,
@@ -286,10 +363,10 @@ with left_col:
         """
         <div class="section-card">
             <div class="section-title">👤 About Me</div>
-            <p style="color:#d1d5db; line-height:1.8; font-size:0.95rem;">
-                안녕하세요! <strong style="color:#c4b5fd;">한전KDN</strong>에서 근무하고 있는 IT 개발자 <strong style="color:#c4b5fd;">지후</strong>입니다.<br><br>
+            <p style="color:#7DAF8A; line-height:1.9; font-size:0.93rem;">
+                안녕하세요! <strong style="color:#CCFF00;">한전KDN</strong>에서 근무하고 있는 IT 개발자 <strong style="color:#E8F5E2;">지후</strong>입니다.<br><br>
                 전력 IT 인프라와 데이터 플랫폼 개발을 전문으로 하며,
-                <strong style="color:#93c5fd;">Python</strong>과 <strong style="color:#93c5fd;">Streamlit</strong>을 활용한
+                <strong style="color:#CCFF00;">Python</strong>과 <strong style="color:#CCFF00;">Streamlit</strong>을 활용한
                 데이터 시각화·대시보드 개발에 열정을 갖고 있습니다.<br><br>
                 복잡한 에너지 데이터를 누구나 쉽게 이해할 수 있는 인터페이스로 만드는 것을 목표로,
                 오늘도 코드 한 줄 한 줄에 의미를 담아 개발하고 있습니다. 🔋
@@ -318,7 +395,7 @@ with left_col:
         st.markdown(
             f"""
             <div class="skill-item">
-                <div class="skill-label"><span>{skill}</span><span>{pct}%</span></div>
+                <div class="skill-label"><span>{skill}</span><span class="skill-pct">{pct}%</span></div>
                 <div class="skill-bar-bg">
                     <div class="skill-bar-fill" style="width:{pct}%;"></div>
                 </div>
@@ -506,9 +583,9 @@ with msg_col:
 st.markdown(
     """
     <div style="text-align:center; margin-top:3rem; padding:1.5rem;
-                border-top:1px solid rgba(255,255,255,0.08); color:#6b7280; font-size:0.82rem;">
+                border-top:1px solid rgba(204,255,0,0.1); color:#4A7060; font-size:0.82rem; letter-spacing:0.03em;">
         © 2026 Jihoo · Built with ❤️ using
-        <strong style="color:#a78bfa;">Streamlit</strong>
+        <strong style="color:#CCFF00; text-shadow:0 0 10px rgba(204,255,0,0.5);">Streamlit</strong>
     </div>
     """,
     unsafe_allow_html=True,
