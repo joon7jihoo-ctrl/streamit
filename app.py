@@ -245,10 +245,10 @@ st.markdown(
     """
     <div class="hero-container">
         <div class="hero-avatar">👨‍💻</div>
-        <div class="hero-name">Jihoo · 지후</div>
+        <div class="hero-name">Jihoo</div>
         <div class="hero-title">IT Engineer / Data Developer @ KDN</div>
         <div style="margin-top:0.8rem;">
-            <span class="hero-badge">🏢 한국전력KDN</span>
+            <span class="hero-badge">🏢 한전KDN</span>
             <span class="hero-badge">💡 데이터 엔지니어링</span>
             <span class="hero-badge">🐍 Python / Streamlit</span>
             <span class="hero-badge">☁️ Cloud & DevOps</span>
@@ -287,7 +287,7 @@ with left_col:
         <div class="section-card">
             <div class="section-title">👤 About Me</div>
             <p style="color:#d1d5db; line-height:1.8; font-size:0.95rem;">
-                안녕하세요! <strong style="color:#c4b5fd;">한국전력KDN</strong>에서 근무하고 있는 IT 개발자 <strong style="color:#c4b5fd;">지후</strong>입니다.<br><br>
+                안녕하세요! <strong style="color:#c4b5fd;">한전KDN</strong>에서 근무하고 있는 IT 개발자 <strong style="color:#c4b5fd;">지후</strong>입니다.<br><br>
                 전력 IT 인프라와 데이터 플랫폼 개발을 전문으로 하며,
                 <strong style="color:#93c5fd;">Python</strong>과 <strong style="color:#93c5fd;">Streamlit</strong>을 활용한
                 데이터 시각화·대시보드 개발에 열정을 갖고 있습니다.<br><br>
@@ -374,7 +374,7 @@ with right_col:
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-period">2021.03 – 현재</div>
-                <div class="timeline-company">한국전력KDN (KDN)</div>
+                <div class="timeline-company">한전KDN (KDN)</div>
                 <div class="timeline-role">IT 개발팀 · 주임연구원</div>
                 <div class="timeline-desc">
                     전력 IT 시스템 운영 및 데이터 플랫폼 개발.<br>
@@ -471,7 +471,7 @@ with cont_col:
             </div>
             <div class="contact-item">
                 <span class="contact-icon">🏢</span>
-                <span>한국전력KDN · IT 개발팀</span>
+                <span>한전KDN · IT 개발팀</span>
             </div>
             <div class="contact-item">
                 <span class="contact-icon">📍</span>
